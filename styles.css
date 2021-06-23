@@ -1,0 +1,88 @@
+:root {
+    --body-bg: #130f0d;
+    --wrapper-border-color: #907ad611;
+    --board-bg-color: #141316;
+    --dropzone-bg-color: #2e294e;
+    --card-bg-color: #907ad6cc;
+    --status-backlog-bg-color: #f6511dcc;
+    --status-in-progress-bg-color: #0acdffcc;
+    --status-done-bg-color: #7fefbdcc;
+    --highlight: #404e7c;
+    --is-dragging-bg: #251f47;
+}
+
+html {
+    font-family: 'Nunito';
+}
+
+body {
+    background-color: var(--body-bg);
+    color: white;
+}
+
+.boards {
+    display: flex;
+    margin-top: 32px;
+}
+
+.board {
+    background: var(--body-bg);
+    border: 1px solid var(--wrapper-border-color);
+    border-radius: 4px;
+
+    margin: 0 16px;
+}
+
+.board h3 {
+    padding: 16px;
+    margin: 0px;
+    margin-bottom: 10px;
+}
+
+.dropzone {
+    padding: 16px;
+    min-width: 282px;
+    min-height: 200px;
+    background-color: var(--dropzone-bg-color);
+    transition: 400ms;
+}
+
+.card {
+    width: 280px;
+    min-height: 80px;
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--wrapper-border-color);
+    border-radius: 4px;
+    box-shadow: 0px 2px#FFF;
+}
+
+.status {
+    width: 60px;
+    height: 10px;
+    border-radius: 20px;
+    margin: 10px;
+}
+
+.backlog {
+    background-color: var(--status-backlog-bg-color);
+}
+
+.in-progress {
+    background-color: var(--status-in-progress-bg-color);
+}
+
+.done {
+    background-color: var(--status-done-bg-color);
+}
+
+.content {
+    margin: 10px;
+}
+
+.highlight {
+    background-color: var(--highlight);
+}
+
+.is-dragging {
+    background-color: var(--is-dragging-bg);
+}
