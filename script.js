@@ -1,6 +1,9 @@
 const cards = document.querySelectorAll('.card')
 const dropzones = document.querySelectorAll('.dropzone')
 
+/**
+ * CARDS
+ */
 function dragstart() {
     dropzones.forEach(zone => {
         zone.classList.add('highlight');
@@ -8,14 +11,15 @@ function dragstart() {
 };
 
 function drag() {
-    // console.log('CARD > DRAG');
+    this.classList.add('is-dragging');
 };
 
 function dragend() {
-    // console.log('CARD > DRAGEND');
     dropzones.forEach(zone => {
         zone.classList.remove('highlight');
     });
+
+    this.classList.remove('is-dragging');
 };
 
 cards.forEach(card => {
@@ -24,28 +28,22 @@ cards.forEach(card => {
     card.addEventListener('dragend', dragend)
 })
 
-
-function dragenter() {
-    console.log('ZONE > dragenter');
-};
-
+/**
+ * BOARD
+ */
 function dragover() {
-    console.log('ZONE > dragover');
-    this.classList.add('is-dragging');
+    this.classList.add('over');
+
+    const cardDragging = document.querySelector('.is-dragging');
+
+    this.appendChild(cardDragging)
 };
 
 function dragleave() {
-    console.log('ZONE > dragleave');
-    this.classList.remove('is-dragging');
-};
-
-function drop() {
-    console.log('ZONE > DROP');
+    this.classList.remove('over');
 };
 
 dropzones.forEach(dropzone => {
-    dropzone.addEventListener('dragenter', dragenter)
     dropzone.addEventListener('dragover', dragover)
     dropzone.addEventListener('dragleave', dragleave)
-    dropzone.addEventListener('drop', drop)
 })
