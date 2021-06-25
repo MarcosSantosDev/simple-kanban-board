@@ -3,7 +3,8 @@
     --wrapper-border-color: #907ad611;
     --board-bg-color: #141316;
     --dropzone-bg-color: #2e294e;
-    --card-bg-color: #907ad6cc;
+    --card-bg-color: #593c8fcc;
+    --card-border-bottom-color: #907ad6cc;
     --status-backlog-bg-color: #f6511dcc;
     --status-in-progress-bg-color: #0acdffcc;
     --status-done-bg-color: #7fefbdcc;
@@ -28,8 +29,7 @@ body {
 .board {
     background: var(--board-bg-color);
     border: 1px solid var(--wrapper-border-color);
-    border-radius: 4px;
-
+    border-radius: 6px;
     margin: 0 16px;
 }
 
@@ -40,20 +40,29 @@ body {
 }
 
 .dropzone {
-    padding: 16px;
-    min-width: 282px;
-    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 300px;
+    height: 100%;
+    padding: 16px 10px;
+    border-radius: 6px;
     background-color: var(--dropzone-bg-color);
     transition: 400ms;
 }
 
 .card {
-    width: 280px;
-    min-height: 80px;
-    background-color: var(--card-bg-color);
+    min-width: 280px;
+    min-height: 100px;
     border: 1px solid var(--wrapper-border-color);
-    border-radius: 4px;
-    box-shadow: 0px 2px#FFF;
+    border-bottom: 3px solid var(--card-border-bottom-color);
+    border-radius: 6px;
+    background-color: var(--card-bg-color);
+}
+
+.card:hover {
+    cursor: -webkit-grab;
+    cursor: -moz-grab;
 }
 
 .status {
@@ -84,5 +93,9 @@ body {
 }
 
 .is-dragging {
-    background-color: var(--is-dragging-bg);
+    opacity: 0.3;
+}
+
+.over {
+    opacity: .7;
 }
