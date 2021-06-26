@@ -1,15 +1,16 @@
 :root {
-    --body-bg: #130f0d;
+    --color: #000000bf;
+    --body-bg: #FFF;
     --wrapper-border-color: #907ad611;
-    --board-bg-color: #141316;
-    --dropzone-bg-color: #2e294e;
-    --card-bg-color: #593c8fcc;
+    --board-bg-color: #e0f4f6;
+    --card-bg-color: #FFF;
     --card-border-bottom-color: #907ad6cc;
     --status-backlog-bg-color: #f6511dcc;
     --status-in-progress-bg-color: #0acdffcc;
     --status-done-bg-color: #7fefbdcc;
-    --highlight: #404e7c;
+    --highlight: #607d8b0a;
     --is-dragging-bg: #251f47;
+    --over-box-shadow-color: #d1e2e4;
 }
 
 html {
@@ -18,25 +19,35 @@ html {
 
 body {
     background-color: var(--body-bg);
-    color: white;
+    color: var(--color);
 }
 
 .boards {
     display: flex;
-    margin-top: 32px;
+    height: calc(100vh - 64px);
+    margin: 32px 0px;
 }
 
 .board {
+    display: grid;
+    grid-template-rows: 60px 1fr;
     background: var(--board-bg-color);
     border: 1px solid var(--wrapper-border-color);
     border-radius: 6px;
-    margin: 0 16px;
+    margin: 0 15px;
+    box-sizing: border-box;
 }
 
-.board h3 {
-    padding: 16px;
+.board-title {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    padding-left: 15px;
+}
+
+.board-title h3 {
+    padding: 0px;
     margin: 0px;
-    margin-bottom: 10px;
 }
 
 .dropzone {
@@ -44,20 +55,22 @@ body {
     flex-direction: column;
     gap: 16px;
     width: 300px;
-    height: 100%;
+    max-height: 100%;
     padding: 16px 10px;
-    border-radius: 6px;
-    background-color: var(--dropzone-bg-color);
+    border-radius: 0px 0px 6px 6px;
     transition: 400ms;
+    box-sizing: border-box;
 }
 
 .card {
-    min-width: 280px;
-    min-height: 100px;
+    display: grid;
+    grid-template-rows: 20px 80px;
+    width: 280px;
     border: 1px solid var(--wrapper-border-color);
     border-bottom: 3px solid var(--card-border-bottom-color);
     border-radius: 6px;
     background-color: var(--card-bg-color);
+    box-sizing: border-box;
 }
 
 .card:hover {
@@ -70,6 +83,8 @@ body {
     height: 10px;
     border-radius: 20px;
     margin: 10px;
+    box-sizing: border-box;
+    grid-row: 1 / 2;
 }
 
 .backlog {
@@ -85,7 +100,9 @@ body {
 }
 
 .content {
-    margin: 10px;
+    grid-row: 2 / 3;
+    height: 80px;
+    padding: 0 10px;
 }
 
 .highlight {
@@ -97,5 +114,5 @@ body {
 }
 
 .over {
-    opacity: .7;
+    box-shadow: 0px 2px 18px var(--over-box-shadow-color);
 }
